@@ -1,0 +1,109 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --body-background:linear-gradient(to right, hsl(200, 100%, 50%), hsl(175, 100%, 50%));
+    --clock-background:rgba(255,255,255, .8);
+    --clock-size:300px;
+    --hour-height:35%;
+    --hour-width:10px;
+    --minute-height:40%;
+    --minute-width:7px;
+    --second-height:45%;
+    --second-width:5px;
+    --psuedo-size:15px;
+}
+body{
+    background: var(--body-background);
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+.clock{
+    position: relative;
+    height: var(--clock-size);
+    width: var(--clock-size);
+    background: var(--clock-background);
+    border: 2px solid black;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+.number{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    transform: rotate(var(--rotate));
+}
+/* .number1{--rotate:30deg;}
+.number2{--rotate:60deg;}
+.number3{--rotate:90deg;}
+.number4{--rotate:120deg;}
+.number5{--rotate:150deg;}
+.number6{--rotate:180deg;}
+.number7{--rotate:210deg;}
+.number8{--rotate:240deg;}
+.number9{--rotate:270deg;}
+.number10{--rotate:300deg;}
+.number11{--rotate:330deg;} */
+
+.number1{--rotate: calc(30deg * 1)}
+.number2{--rotate: calc(30deg * 2)}
+.number3{--rotate: calc(30deg * 3)}
+.number4{--rotate: calc(30deg * 4)}
+.number5{--rotate: calc(30deg * 5)}
+.number6{--rotate: calc(30deg * 6)}
+.number7{--rotate: calc(30deg * 7)}
+.number8{--rotate: calc(30deg * 8)}
+.number9{--rotate: calc(30deg * 9)}
+.number10{--rotate: calc(30deg * 10)}
+.number11{--rotate: calc(30deg * 11)}
+
+.hand{
+    --rotation:0;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+    transform-origin: bottom;
+    z-index: 2;
+    
+   
+}
+.hour{
+    height: var(--hour-height);
+    width: var(--hour-width);
+    background-color: black;
+    border-top-left-radius:40% ;
+    border-top-right-radius:40% ;
+}
+.minute{
+    height: var(--minute-height);
+    width: var(--minute-width);
+    background-color: black;
+    border-top-left-radius:40% ;
+    border-top-right-radius:40% ;
+}
+.second{
+    height: var(--second-height);
+    width: var(--second-width);
+    background-color: red;
+    border-top-left-radius:40% ;
+    border-top-right-radius:40% ;
+    
+}
+.clock::before{
+    content: '';
+    position:absolute;
+    height: var(--psuedo-size);
+    width: var(--psuedo-size);
+    background-color: black;
+    border-radius:50% ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 10;
+
+}
